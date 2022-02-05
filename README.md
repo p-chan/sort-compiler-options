@@ -1,6 +1,6 @@
 # sort-compiler-options
 
-> Sort tsconfig.json compilerOptions in the same order as [the TSConfig Reference](https://www.typescriptlang.org/tsconfig#compilerOptions)
+> Sort tsconfig.json compilerOptions in the same order as [the TSConfig Reference](https://www.typescriptlang.org/tsconfig#compilerOptions) (Support v4.5.5 or less)
 
 ## Install
 
