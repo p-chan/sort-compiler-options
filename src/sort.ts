@@ -21,7 +21,7 @@ export const sort = (target: any, depth: number = 0) => {
       })
       .forEach((item) => {
         if (Array.isArray(item) || typeof item === 'object') {
-          return sort(item, depth + 1)
+          return nextArray.push(sort(item, depth + 1))
         }
 
         return nextArray.push(item)
