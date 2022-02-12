@@ -6,7 +6,7 @@ type Object = {
   [key: string]: any
 }
 
-export const sort = (target: any, depth: number) => {
+export const sort = (target: any, depth: number = 0) => {
   // array
   if (Array.isArray(target)) {
     const array = target

@@ -30,7 +30,7 @@ export const action = async (options: Options) => {
 
     if (tsConfigJson.compilerOptions == undefined) throw new Error('compilerOptions is not defined')
 
-    tsConfigJson.compilerOptions = sort(tsConfigJson.compilerOptions, 0)
+    tsConfigJson.compilerOptions = sort(tsConfigJson.compilerOptions)
 
     const tsConfigJsonString = JSON.stringify(tsConfigJson)
 
