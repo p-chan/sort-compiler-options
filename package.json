@@ -33,6 +33,7 @@
     "format": "prettier --write .",
     "prebuild": "npm run clean",
     "prepublishOnly": "npm run build",
+    "test": "vitest",
     "version:major": "standard-version -r major",
     "version:minor": "standard-version -r minor",
     "version:patch": "standard-version -r patch"
@@ -51,6 +52,7 @@
     "standard-version": "9.3.2",
     "ts-node": "10.4.0",
     "type-fest": "2.11.1",
-    "typescript": "4.5.5"
+    "typescript": "4.5.5",
+    "vitest": "0.3.2"
   }
 }
