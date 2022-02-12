@@ -4,11 +4,7 @@ import { TsConfigJson } from 'type-fest'
 import consola from 'consola'
 import prettier from 'prettier'
 
-import { order } from './order'
-
-type Object = {
-  [key: string]: any
-}
+import { sort } from './sort'
 
 type Options = {
   '--': any[]
@@ -34,26 +30,7 @@ export const action = async (options: Options) => {
 
     if (tsConfigJson.compilerOptions == undefined) throw new Error('compilerOptions is not defined')
 
-    const nextCompilerOptions: Object = {}
-
-    Object.keys(tsConfigJson.compilerOptions)
-      .sort((a, b) => {
-        let aIndex = order.findIndex((key) => key === a)
-        let bIndex = order.findIndex((key) => key === b)
-
-        aIndex = aIndex >= 0 ? aIndex : Number.MAX_SAFE_INTEGER
-        bIndex = bIndex >= 0 ? bIndex : Number.MAX_SAFE_INTEGER
-
-        if (aIndex > bIndex) return 1
-        if (aIndex < bIndex) return -1
-
-        return 0
-      })
-      .forEach((key) => {
-        nextCompilerOptions[key] = (tsConfigJson.compilerOptions as Object)[key]
-      })
-
-    tsConfigJson.compilerOptions = nextCompilerOptions
+    tsConfigJson.compilerOptions = sort(tsConfigJson.compilerOptions)
 
     const tsConfigJsonString = JSON.stringify(tsConfigJson)
 
